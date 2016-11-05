@@ -57,8 +57,12 @@ hdfs dfs -appendToFile \textit{ścieżka\_lokalna} \textit{ścieżka\_na\_hdfs}
 
 \end{enumerate}
 
-Jeżeli klaster nie jest zabezpieczony kerberosem, to możemy wykorzystać zmienną środowiskową HADOOP\_USER\_NAME, żeby ustawić użytkownika z którego wykonane zostanie polecenie, np.\\*
+Jeżeli klaster nie jest zabezpieczony kerberosem, to możemy wykorzystać zmienną środowiskową HADOOP\_USER\_NAME, żeby ustawić użytkownika z którego wykonane zostanie polecenie, np.
+\\*
 HADOOP\_USER\_NAME hdfs dfs -mkdir /katalog
+\\*
+\\*
+Odpowiednikiem linuxowego roota na hdfsie jest użytkownik 'hdfs'
 \\*
 \\*
 \\*
