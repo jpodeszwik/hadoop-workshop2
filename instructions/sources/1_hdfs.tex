@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+
+\begin{document}
+
+Przydatne komendy hdfs:
+\begin{enumerate}
+\item ls - listuje katalog
+
+hdfs dfs -ls \textit{ścieżka}
+
+\item cat - wypisuje zawartość pliku
+
+hdfs dfs -cat \textit{ścieżka}
+
+\item mkdir - tworzy katalog
+
+hdfs dfs -mkdir \textit{ścieżka}
+ 
+\item rm - usuwa plik
+
+hdfs dfs -rm \textit{ścieżka}
+
+\item chmod - zmienia prawa dostępu do pliku
+
+hdfs dfs -chmod \textit{prawa\_dostępu} \textit{ścieżka}
+
+\item chown - zmienia właściciela pliku
+
+hdfs dfs -chown \textit{user}:\textit{grupa} \textit{ścieżka}
+
+\item cp - kopiuje plik na hdfsie
+
+hdfs dfs -cp \textit{źródło} \textit{cel}
+
+\item mv - przenosi plik na hdfsie
+
+hdfs dfs -mv \textit{źródło} \textit{cel}
+
+\item put - umieszka lokalny plik na hdfsie
+
+hdfs dfs -put \textit{ścieżka\_lokalna} \textit{ścieżka\_na\_hdfs}
+
+\item get - pobiera plik z hdfsa
+
+hdfs dfs -get \textit{ścieżka\_na\_hdfs} \textit{ścieżka\_lokalna}
+
+\item touchz - tworzy pusty plik
+
+hdfs dfs -touchz \textit{ścieżka}
+
+\item appendToFile - przepisuje plik do końca pliku na hdfsie
+
+hdfs dfs -appendToFile \textit{ścieżka\_lokalna} \textit{ścieżka\_na\_hdfs}
+
+\end{enumerate}
+
+Jeżeli klaster nie jest zabezpieczony kerberosem, to możemy wykorzystać zmienną środowiskową HADOOP\_USER\_NAME, żeby ustawić użytkownika z którego wykonane zostanie polecenie, np.\\*
+HADOOP\_USER\_NAME hdfs dfs -mkdir /katalog
+\\*
+\\*
+\\*
+Zadania:
+\begin{enumerate}
+\item Utwórz katalogi:\\*
+vagrant:vagrant /user/vagrant
+\\*
+vagrant:vagrant /user/vagrant/inputs
+\\*
+vagrant:vagrant /user/vagrant/outputs
+\\*
+flume:flume /user/flume
+\\*
+kursant:kursant /user/kursant
+\item wrzuć pliki loremipsum i apache\_logs do /user/vagrant/inputs
+\item zmień prawa do odczytu do katalogu /user/kursant tak, żeby tylko kursant mógł go odczytać
+\item spróbuj odczytać katalog jako user ’vagrant’
+\item spróbuj odczytać katalog jako user ’hdfs’
+\end{enumerate}
+
+\end{document}
