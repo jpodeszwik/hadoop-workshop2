@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+\usepackage{listings}
+\lstset{
+  breaklines=true,
+   frame=single,
+   showstringspaces=false
+}
+\begin{document}
+
+Instalacja flume:
+\begin{enumerate}
+\item Wejdź na interfejs webowy cluodera managera http://vm-cluster-node1:7180
+\item Kliknij strzałkę w dół po prawej stronie napisu 'Cluster 1', a następnie 'Add Service'
+\item Wybierz z listy 'Flume' i kliknij continue
+\item kliknij na 'Select hosts'. Zaznacz checkbox przy 'vm-cluster-node2', a następnie kliknij 'OK' i 'Continue'.
+\item kliknij 'Finish'
+\item kliknij na nowo powstały serwis 'Flume', a następnie wejdź w zakładkę 'Configuration'
+\item Przekopiuj konfigurację z pliku 'flume.conf' do pola 'Configuration File'
+\item Dodaj do 'Plugin directories' wartość '/home/vagrant/flume.plugins.d'
+\item Kliknij 'save changes'
+\item Utwórz na vm-cluster-node2 katalog '/home/vagrant/flume.plugins.d/interceptors/lib' i wrzuć do niego zbudowanego jara z interceptorami.
+\item Kliknij u góry na 'Actions'
+\item Kliknij akcję 'Start'
+\item Wejdź na https://github.com/jpodeszwik/Fake-Apache-Log-Generator i sklonuj repozytorium
+\item Postępuj zgodnie z instrukcją instalacji w README
+\item uruchom generator spreparowanych logów apache'a za pomocą komendy './run.sh vm-cluster-node2 9999'
+\item wylistuj katalog na hdfsie /user/flume/events i zobacz czy pojawiają się logi apache'a
+\end{enumerate}
+
+\pagebreak
+
+Zadania:
+\begin{enumerate}
+\item Napisz interceptor, który odkoduje datę z linijki loga i ustawi odpowiednią datę w nagłówku. Skorzystaj z nagłówka ‘timestamp’ i umieść w nim unixowy timestamp wyznaczony na podstawie daty odkodowanej z eventu. Eventy z przedwczorajszą datą wygeneruj za pomocą polecenia './run2.sh vm-cluster-node2 9999'
+\item Skorzystaj z możliwości multiplexacji, żeby odfiltrować błędne linijki loga. Przekieruj błędne linijki do innego katalogu. Błędne eventy wygeneruj za pomocą komendy './run3.sh vm-cluster-node2 9999'
+
+https://flume.apache.org/FlumeUserGuide.html\#multiplexing-the-flow
+\end{enumerate}
+
+\end{document}
