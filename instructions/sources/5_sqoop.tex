@@ -1,0 +1,19 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+
+\begin{document}
+
+Ściągnięcie danych z bazy mysql na hdfs:
+\begin{enumerate}
+\item zainstaluj na vm-cluster-node1 serwer mysql 'sudo apt-get install mysql-server'
+\item Skopiuj plik 'dump.sql' na vm-cluster-node1 i wykonaj polecenie 'mysql -u root \textless dump.sql'
+\item w pliku '/etc/mysql/my.cnf ustaw 'bind-address = 0.0.0.0'
+\item zrestartuj mysql 'sudo /etc/init.d/mysql restart'
+\item ściągnij connector dla mysqla http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.39.tar.gz i rozpakuj (tar -xzf mysql-connector-java-5.1.39.tar.gz)
+\item W rozpakowanym archiwum znajdź mysql-connector-java-5.1.39-bin.jar i wrzuć na vm-cluster-node2 do katalogu '/var/lib/sqoop'
+\item Na vm-cluster-node2 uruchom import tabeli sqoop.ip\_name za pomocą komendy: 'sqoop import --connect jdbc:mysql://vm-cluster-node1:3306/sqoop --username sqoop --password sqoop\_pwd --table ip\_name -m 1 --target-dir /user/vagrant/ip\_name
+\end{enumerate}
+
+\end{document}
