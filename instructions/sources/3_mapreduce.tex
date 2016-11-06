@@ -1,0 +1,26 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+
+\begin{document}
+
+Uruchomienie joba mapreduce:
+\begin{enumerate}
+\item Zbuduj jara i wrzuć na maszynę vm-cluster-node2
+\item Zaloguj się na vm-cluster-node2
+\item uruchom joba poleceniem 'hadoop jar \textit{ścieżka\_do\_jara} \textit{pakiet.Klasa} \textit{katalog\_wejściowy} \textit{katalog\_wyjściowy}'
+
+Żeby polecenie się wykonało \textit{katalog\_wyjściowy} nie może istnieć
+\end{enumerate}
+
+Zadania:
+\begin{enumerate}
+\item Napisz joba mapreduce, który policzy literki w tekscie loremipsum
+\item Napisz joba mapreduce, który posortuje policzone literki
+\item Napisz joba mapreduce, który posumuje content_length z apache_logs pogrupowane po metodzie HTTP
+\item Napisz joba mapreduce, który usunie zduplikowane linijki z loga
+\item Napisz joba mapreduce, który wypisze połączone Imie, Nazwisko i useragent z plików apache_logs i dump.sql. Warto skorzystać z klasy MultipleInputs
+\end{enumerate}
+
+\end{document}
