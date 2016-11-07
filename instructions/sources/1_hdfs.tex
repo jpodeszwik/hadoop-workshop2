@@ -59,7 +59,7 @@ hdfs dfs -appendToFile \textit{ścieżka\_lokalna} \textit{ścieżka\_na\_hdfs}
 
 Jeżeli klaster nie jest zabezpieczony kerberosem, to możemy wykorzystać zmienną środowiskową HADOOP\_USER\_NAME, żeby ustawić użytkownika z którego wykonane zostanie polecenie, np.
 \\*
-HADOOP\_USER\_NAME hdfs dfs -mkdir /katalog
+HADOOP\_USER\_NAME=hdfs hdfs dfs -mkdir /katalog
 \\*
 \\*
 Odpowiednikiem linuxowego roota na hdfsie jest użytkownik 'hdfs'
@@ -78,7 +78,7 @@ vagrant:vagrant /user/vagrant/outputs
 flume:flume /user/flume
 \\*
 kursant:kursant /user/kursant
-\item wrzuć pliki loremipsum i apache\_logs do /user/vagrant/inputs
+\item wrzuć pliki dump.sql, loremipsum i apache\_logs do /user/vagrant/inputs
 \item zmień prawa do odczytu do katalogu /user/kursant tak, żeby tylko kursant mógł go odczytać
 \item spróbuj odczytać katalog jako user ’vagrant’
 \item spróbuj odczytać katalog jako user ’hdfs’
