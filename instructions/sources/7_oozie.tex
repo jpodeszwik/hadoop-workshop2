@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+
+\begin{document}
+
+Job hadoop streaming na oozie:
+\begin{enumerate}
+\item wrzuć mapper.py i reducer.py na hdfsa
+\item rozwiń na hue zakładkę 'Workflows' i następnie kliknij w 'Editors'
+\item kliknij po prawej stronie przycisk 'create'
+\item Przeciągnij akcję streaming do workflowu
+\item W pole Mapper wpisz 'mapper.py', a w pole Reducer wpisz 'reducer.py'
+\item Kliknij 'Add'
+\item Kliknij w przycisk 'FILES+' i znajdź plik 'mapper.py', następnie kliknij jeszcze raz i znajdź plik 'reducer.py'
+\item Kliknij w prawym górnym rogu akcji w przycisk ustawień
+\item Kliknij w przycisk 'PROPERTIES+' i wpisz w pierwsze pole 'mapred.input.dir', a w drugim podaj ścieżkę do katalogu / pliku wejściowego
+\item Kliknij jeszcze raz i dodaj property 'mapred.output.dir' z namiarami na katalog wyjściowy
+\item Zapisz workflow klikając save w prawym górnym rogu
+\end{enumerate}
+
+\pagebreak
+
+Job mapreduce:
+\begin{enumerate}
+\item wrzuć jara z jobem na hdfsa
+\item dodaj akcję 'Java program' do workflowu
+\item w polu 'Jar name' znajdź jara z jobem na hdfsie
+\item w polu 'Main class' wpisz nazwę klasy razem z pakietem
+\item Kliknij 2 razy w 'ARGUMENTS+'. W pierwszym polu wpisz plik/katalog wejściowy, a w drugim wyjściowy
+\item Zapisz workflow klikając save w prawym górnym rogu
+\end{enumerate}
+
+\end{document}
