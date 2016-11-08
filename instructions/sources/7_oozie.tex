@@ -5,6 +5,26 @@
 
 \begin{document}
 
+Najpierw przekonfiguruj yarna:
+\begin{enumerate}
+\item Na cloudera managerze wejdź w konfigurację yarna.
+\item Wpisz w wyszukiwarkę: yarn.nodemanager.resource.cpu-vcores i ustaw ten parametr na 2.
+\item yarn.app.mapreduce.am.resource.mb: 512MiB
+\item mapreduce.map.memory.mb: 512MiB
+\item mapreduce.reduce.memory.mb: 512MiB
+\item yarn.scheduler.minimum-allocation-mb: 512MiB
+\item yarn.scheduler.increment-allocation-mb: 512MiB
+\item yarn.scheduler.maximum-allocation-mb: 512MiB
+\item mapreduce.map.java.opts.max.heap: 400 MiB
+\item mapreduce.reduce.java.opts.max.heap: 400 MiB
+\item 'ApplicationMaster Java Maximum Heap Size': 400 MiB
+\item Kliknij save changes
+\item Kliknij w logo cloudera managera w lewym górnym rogu. Przy yarnie pojawiła się ikonka z tooltipem: 'Stale configuration ...'. kliknij ją
+\item Kliknij przycisk: 'Restart stale services'
+\end{enumerate}
+
+\pagebreak
+
 Job hadoop streaming na oozie:
 \begin{enumerate}
 \item wrzuć mapper.py i reducer.py na hdfsa
