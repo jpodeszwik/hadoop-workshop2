@@ -94,6 +94,8 @@ Zadania:
 \item Zdropuj obie tabele i zobacz co stało się z danymi na hdfsie.
 \item Utwórz tabelę w formacie ORC – na końcu polecenia ‘CREATE’ dodaj ‘STORED AS ORC’. Załaduj do niej dane z tabeli apache\_logs. Spróbuj poleceniem ‘hdfs dfs -cat ...’ wypisać zawartość plików i zobacz, że są binarne.
 \item Posumuj content\_length po metodzie (PUT, GET) i zobacz, które requesty zajęły najwięcej transferu. Możesz skorzystać z metody hive’owej split(\textit{string}, \textit{pattern}), żeby wyciągnąć metodę z pola request.
+\item Utwórz tabelę ip\_name z logów załadowanych sqoopem
+\item Utwórz tabelę name\_useragent będącą wynikiem zjoinowania tabel ip\_name i apache\_logs
 \item Utwórz UDF, który wyciągnie z pola request metodę i spróbuj go użyć zamiast polecenia split. Jara z udfem najprościej umieścić na hdfsie i dodać do hive’a poleceniem CREATE FUNCTION \textit{nazwa\_funkcji} AS \textit{pakiet.NazwaKlasy} USING JAR ‘hdfs://\textit{ścieżka\_na\_hdfs}’
 \item Utwórz tabelę partycjonowaną po metodzie i wrzuć do niej dane z tabeli apache\_logs. Skorzystaj z polecenia SET hive.exec.dynamic.partition=true, żeby odblokować dynamiczne wyznaczanie partycji.
 \item Utwórz tabelę partycjonowaną po log_time z eventów, które wrzucił flume
